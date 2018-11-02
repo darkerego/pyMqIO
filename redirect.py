@@ -58,8 +58,7 @@ def mqpub(msg,topic='messages'):
     client.publish(topic, msg);
     client.disconnect();
 
-""" Redirect class - TODO: Modify so this file can be imported,
- by passing sys.argv[1] to class """
+""" Redirect class """
 
 class Redirect:
     def __init__(self,engine,quiet=None):
@@ -88,7 +87,7 @@ class Redirect:
         if not MODE:
             QUIET = False
         else:
-            if MODE == '-q' or MODEs == '--quiet':
+            if MODE == '-q' or MODE == '--quiet' or MODE == 'quiet' or MODE == 'q':
                 QUIET = True
                 sys.stderr = open(ENGINE+".error.log", "a")
                 eprint("Quiet mode enabled, sending output to stream to %s " % PUBTOP)
