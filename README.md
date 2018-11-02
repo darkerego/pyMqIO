@@ -8,16 +8,16 @@ if run interactively, as demonstrated:
 Usage:
 
     >>> from redirect import *
-    >>> ret = Redirect('whatever','-q')
+    >>> ret = Redirect('whatever','q')
     >>> if ret.status():
     ...     from printwrap import print
     ...     print('Test')
     ... 
-    >>> print('Test')
+    >>> print('This data will not be printed to stdout. Rather it will be directed over MqTT')
     >>>
 
 
 To see the output:
 
     mosquitto_sub -t /engines/whatever/io
-    Test
+    This data will not be printed to stdout. Rather it will be directed over MqTT
